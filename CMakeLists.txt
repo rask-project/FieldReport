@@ -11,7 +11,10 @@ qt_add_executable(${PROJECT_NAME}
     main.cpp
 )
 
+set(MATERIAL_ROUND ON)
+
 add_subdirectory(App)
+add_subdirectory(icons)
 
 qt6_add_resources(${PROJECT_NAME} "controls_conf"
     PREFIX
