@@ -58,7 +58,6 @@ qt_add_qml_module(${PROJECT_NAME}
         pages/SettingsPage.qml
     SOURCES
         Style.h Style.cpp
-        MonthsModel.h MonthsModel.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
