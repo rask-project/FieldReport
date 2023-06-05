@@ -801,9 +801,11 @@ list(APPEND ICONS_SRC
     material-round/svg/security.svg
     material-round/svg/select-all.svg
     material-round/svg/send.svg
+    material-round/svg/sentiment-neutral.svg
     material-round/svg/sentiment-dissatisfied.svg
     material-round/svg/sentiment-satisfied-alt.svg
     material-round/svg/sentiment-satisfied.svg
+    material-round/svg/sentiment-dissatisfied.svg
     material-round/svg/sentiment-very-dissatisfied.svg
     material-round/svg/sentiment-very-satisfied.svg
     material-round/svg/settings-applications.svg
