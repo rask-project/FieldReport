@@ -72,6 +72,7 @@ ColumnLayout {
                 return m - 1
             }
 
+            implicitHeight: 48
             flat: true
             icon.name: "arrow-back-ios"
             text: Qt.locale().monthName(month, Locale.ShortFormat)
@@ -88,6 +89,8 @@ ColumnLayout {
         }
 
         RoundButton {
+            implicitHeight: 48
+
             flat: true
             icon.name: "today"
 
@@ -108,6 +111,8 @@ ColumnLayout {
                     return 0
                 return m + 1
             }
+
+            implicitHeight: 48
 
             flat: true
             icon.name: "arrow-forward-ios"
@@ -149,8 +154,10 @@ ColumnLayout {
         signal movedToRight
 
         Layout.fillWidth: true
-        Layout.preferredHeight: 200
+        Layout.preferredHeight: 170
         Layout.margins: 10
+        Layout.topMargin: 5
+        Layout.bottomMargin: 5
 
         currentIndex: 1
 

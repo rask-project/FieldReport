@@ -11,6 +11,14 @@ Item {
     id: control
 
     required property date date
+    property bool showShortCalendar: false
+
+    onShowShortCalendarChanged: {
+        if (control.showShortCalendar)
+            control.implicitHeight = 90
+        else
+            control.implicitHeight = privateData.maxImplicitHeight
+    }
 
     implicitHeight: monthCalendar.implicitHeight + 20
     clip: true
@@ -19,13 +27,12 @@ Item {
         id: privateData
 
         property real maxImplicitHeight: 0
-        property bool showShortCalendar: false
     }
 
     MonthCalendar {
         id: monthCalendar
 
-        visible: !privateData.showShortCalendar
+        visible: !control.showShortCalendar
         width: parent.width
 
         date: control.date
@@ -38,7 +45,7 @@ Item {
     WeekCalendar {
         id: weekCalendar
 
-        visible: privateData.showShortCalendar
+        visible: control.showShortCalendar
         width: parent.width
 
         date: control.date
@@ -112,17 +119,15 @@ Item {
             resizeArea.startY = 0
 
             if (resizeArea.decreasing) {
-                control.implicitHeight = 100
                 resizeArea.decreasing = false
                 resizeArea.increasing = false
-                privateData.showShortCalendar = true
+                control.showShortCalendar = true
             }
 
             if (resizeArea.increasing) {
-                control.implicitHeight = privateData.maxImplicitHeight
                 resizeArea.decreasing = false
                 resizeArea.increasing = false
-                privateData.showShortCalendar = false
+                control.showShortCalendar = false
             }
         }
     }

@@ -40,6 +40,7 @@ qt_add_qml_module(${PROJECT_NAME}
         controls/Card.qml
         controls/HeaderBar.qml
         controls/InfoMessage.qml
+        controls/IntervalTimeRectangle.qml
         controls/FieldServiceTimer.qml
         controls/MonthCalendar.qml
         controls/MonthView.qml

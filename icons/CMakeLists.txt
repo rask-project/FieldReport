@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.19...3.24)
 option(MATERIAL "Material Icons" false)
 option(MATERIAL_TWOTONE "Material TwoTone Icons" false)
 option(MATERIAL_SHARP "Material Sharp Icons" false)
-option(MATERIAL_ROUND "Material Round Icons" false)
+option(MATERIAL_ROUND "Material Round Icons" true)
 option(MATERIAL_OUTLINE "Material Outline Icons" false)
 option(MATERIAL_BASELINE "Material Baseline Icons" false)
 

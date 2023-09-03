@@ -13,6 +13,8 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.leftMargin: 10
         Layout.rightMargin: 10
+        Layout.topMargin: 5
+        Layout.bottomMargin: 5
 
         delegate: Label {
             required property string narrowName
@@ -51,7 +53,7 @@ ColumnLayout {
         Layout.rightMargin: 10
 
         cellWidth: width / 7
-        cellHeight: 32
+        cellHeight: 30
 
         model: shortCalendarGridView.weekDates
 

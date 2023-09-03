@@ -16,7 +16,7 @@ Item {
 
         month: control.date.getUTCMonth()
         year: control.date.getUTCFullYear()
-        spacing: 5
+        spacing: 2
 
         delegate: Label {
             id: dayItem
@@ -27,7 +27,7 @@ Item {
                 dayItem.model.day === control.date.getUTCDate() &&
                 dayItem.model.month === control.date.getUTCMonth()
 
-            height: 32
+            height: 30
             text: dayItem.model.day
             opacity: dayItem.currentMonth ? 1.0 : 0.3
             font.weight: !dayItem.currentMonth ? Font.Light : dayItem.highlighted ? Font.DemiBold : Font.Normal

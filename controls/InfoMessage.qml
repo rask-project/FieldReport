@@ -12,7 +12,7 @@ Item {
 
     readonly property var properties: {
         switch (control.messageType) {
-        case InfoMessage.Info: return { "icon": "sentiment-neutral", "color": Material.color(Material.BlueGrey), "opacity": 0.5 }
+        case InfoMessage.Info: return { "icon": "sentiment-neutral", "color": Material.accent, "opacity": 0.5 }
         case InfoMessage.Warning: return { "icon": "sentiment-dissatisfied", "color": Material.color(Material.Orange), "opacity": 0.8 }
         case InfoMessage.Error: return { "icon": "sentiment-very-dissatisfied", "color": Material.color(Material.Red), "opacity": 0.8 }
         }
