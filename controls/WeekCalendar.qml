@@ -49,6 +49,7 @@ ColumnLayout {
         }
 
         Layout.fillWidth: true
+        Layout.preferredHeight: cellHeight * 1.2
         Layout.leftMargin: 10
         Layout.rightMargin: 10
 
