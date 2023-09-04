@@ -7,19 +7,19 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setOrganizationDomain("io.github.marssola");
-    QCoreApplication::setApplicationName("FieldReport");
-    QCoreApplication::setApplicationVersion("1.0.0");
+    QCoreApplication::setOrganizationDomain(QStringLiteral("io.github.marssola"));
+    QCoreApplication::setApplicationName(QStringLiteral("FieldReport"));
+    QCoreApplication::setApplicationVersion(QStringLiteral("1.0.0"));
 
     QGuiApplication app(argc, argv);
     QLocale::setDefault(QLocale::English);
 
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Black.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Bold.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Light.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Medium.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Thin.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/Roboto/Roboto-Regular.ttf");
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Black.ttf"));
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Bold.ttf"));
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Light.ttf"));
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Medium.ttf"));
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Thin.ttf"));
+    QFontDatabase::addApplicationFont(QStringLiteral(":/fonts/Roboto/Roboto-Regular.ttf"));
 
     QQmlApplicationEngine engine;
 
