@@ -15,10 +15,11 @@ ToolBar {
     property list<Item> actions: []
     property Item headerSubcontent: null
 
-    implicitHeight: columLayout.implicitHeight + padding
-    padding: 5
+    implicitHeight: columLayout.implicitHeight + topInset + bottomInset + topPadding + bottomPadding
+    padding: 10
+    bottomPadding: !!control.headerSubcontent ? 0 : 16
 
-    Material.elevation: 3
+    Material.elevation: 6
 
     Column {
         id: columLayout
@@ -37,8 +38,8 @@ ToolBar {
                 text: control.title
                 elide: Label.ElideRight
                 wrapMode: Label.WordWrap
-                font.pixelSize: 18
-                font.weight: Font.Bold
+                font.pixelSize: 24
+                font.weight: Font.Medium
                 font.capitalization: Font.Capitalize
             }
 

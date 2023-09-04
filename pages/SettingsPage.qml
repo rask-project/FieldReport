@@ -20,8 +20,7 @@ Controls.ScrollablePage {
     objectName: "SettingsPage"
 
     padding: 0
-    topPadding: 15
-    bottomPadding: 15
+    topPadding: 24
 
     Column {
         width: parent.width

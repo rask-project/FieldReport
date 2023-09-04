@@ -13,13 +13,9 @@ Item {
     required property date date
     property bool showShortCalendar: false
 
-    onShowShortCalendarChanged: {
-        if (control.showShortCalendar)
-            control.implicitHeight = 90
-        else
-            control.implicitHeight = privateData.maxImplicitHeight
-    }
-
+    onShowShortCalendarChanged: control.implicitHeight = control.showShortCalendar ?
+                                    weekCalendar.implicitHeight + 20 :
+                                    control.implicitHeight = privateData.maxImplicitHeight
     implicitHeight: monthCalendar.implicitHeight + 20
     clip: true
 

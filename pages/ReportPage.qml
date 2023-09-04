@@ -10,7 +10,9 @@ Controls.Page {
     title: page.locale.monthName(calendar.date.getUTCMonth()) + " " + calendar.date.getUTCFullYear()
     objectName: "ReportPage"
 
-    padding: 10
+    padding: 15
+    topPadding: 5
+    bottomPadding: 5
 
     headerSubcontent: Column {
         width: !!parent ? parent.width: 0
@@ -28,14 +30,12 @@ Controls.Page {
             currentIndex: container.currentIndex
 
             TabButton {
-                implicitHeight: 32
                 text: qsTr("Per hour")
 
                 onClicked: container.currentIndex = 0
             }
 
             TabButton {
-                implicitHeight: 32
                 text: qsTr("Detailed")
 
                 onClicked: container.currentIndex = 1

@@ -176,7 +176,7 @@ ApplicationWindow {
         category: "Style"
 
         property int theme: Material.Light
-        property int accentColor: Material.DeepOrange
+        property int accentColor: Material.DeepPurple
     }
 
     Material.theme: styleSettings.theme

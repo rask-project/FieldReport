@@ -12,8 +12,8 @@ ToolBar {
     default property alias content: rowLayout.data
     implicitHeight: 92
 
-    padding: 5
-    topPadding: 12
+    padding: 12
+    topPadding: 10
     bottomPadding: 16
 
     GridLayout {

@@ -11,6 +11,7 @@ Controls.ScrollablePage {
     objectName: "MainPage"
 
     padding: 15
+    topPadding: 24
 
     Column {
         anchors.fill: parent
