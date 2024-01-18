@@ -4,8 +4,8 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 
-import Native
 import App
+import Native
 
 ToolBar {
     id: control
@@ -19,7 +19,8 @@ ToolBar {
     padding: 10
     bottomPadding: !!control.headerSubcontent ? 0 : 16
 
-    Material.elevation: 6
+    clip: true
+    Material.elevation: 0
 
     Column {
         id: columLayout
@@ -59,7 +60,7 @@ ToolBar {
         }
     }
 
-    Material.background: Style.contentBackground
+    Material.background: Style.backgroundColor(Material.accent, Material.theme === Material.Dark)
     Material.foreground: Material.windowText
 
     Material.onBackgroundChanged: Android.setStatusBarColor(Material.background)

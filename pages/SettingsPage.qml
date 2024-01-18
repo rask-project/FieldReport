@@ -19,70 +19,77 @@ Controls.ScrollablePage {
     title: qsTr("Settings")
     objectName: "SettingsPage"
 
-    padding: 0
+    padding: 10
     topPadding: 24
 
     Column {
-        width: parent.width
-        spacing: 10
+        anchors.fill: parent
+        spacing: page.padding * 2
 
-        SwitchDelegate {
-            id: themeSwitch
-
+        Controls.FrameDelegates {
+            id: styleDelegates
             width: parent.width
-            text: qsTr("Dark Theme")
-            font: page.font
 
-            checked: page.styleSettings.theme === Material.Dark
-            onCheckedChanged: page.styleSettings.theme = checked ? Material.Dark : Material.Light
-        }
+            SwitchDelegate {
+                id: themeSwitch
 
-        ItemDelegate {
-            id: themeColorItem
+                width: parent.width
+                text: qsTr("Dark Theme")
+                font: page.font
 
-            width: parent.width
-            font: page.font
+                checked: page.styleSettings.theme === Material.Dark
+                onCheckedChanged: page.styleSettings.theme = checked ? Material.Dark : Material.Light
+            }
 
-            text: qsTr("Theme color")
+            Controls.DividerHorizontal {}
 
-            contentItem: RowLayout {
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
+            ItemDelegate {
+                id: themeColorItem
 
-                    text: themeColorItem.text
-                    font: themeColorItem.font
-                    verticalAlignment: Label.AlignVCenter
-                }
+                width: parent.width
+                font: page.font
 
-                ComboBox {
-                    Layout.fillWidth: true
+                text: qsTr("Theme color")
 
-                    model: themeAccentColorModel
-                    textRole: "name"
-                    valueRole: "keyColor"
-                    implicitHeight: 44
+                contentItem: RowLayout {
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
 
-                    currentIndex: {
-                        for (let i = 0; i < themeAccentColorModel.count; ++i) {
-                            const color = themeAccentColorModel.get(i)
-                            if (color.keyColor === page.styleSettings.accentColor)
-                                return i
+                        text: themeColorItem.text
+                        font: themeColorItem.font
+                        verticalAlignment: Label.AlignVCenter
+                    }
+
+                    ComboBox {
+                        Layout.fillWidth: true
+
+                        model: themeAccentColorModel
+                        textRole: "name"
+                        valueRole: "keyColor"
+                        implicitHeight: 44
+
+                        currentIndex: {
+                            for (let i = 0; i < themeAccentColorModel.count; ++i) {
+                                const color = themeAccentColorModel.get(i)
+                                if (color.keyColor === page.styleSettings.accentColor)
+                                    return i
+                            }
+                            return -1
                         }
-                        return -1
+
+                        delegate: MenuItem {
+                            required property string name
+                            required property int keyColor
+                            required property int index
+
+                            width: ListView.view.width
+                            text: name
+                            Material.foreground: keyColor
+                        }
+
+                        onCurrentValueChanged: page.styleSettings.accentColor = currentValue
                     }
-
-                    delegate: MenuItem {
-                        required property string name
-                        required property int keyColor
-                        required property int index
-
-                        width: ListView.view.width
-                        text: name
-                        Material.foreground: keyColor
-                    }
-
-                    onCurrentValueChanged: page.styleSettings.accentColor = currentValue
                 }
             }
         }

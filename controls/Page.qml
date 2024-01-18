@@ -6,4 +6,6 @@ Page {
 
     property int contentPadding: 0
     property Item headerSubcontent: null
+
+    background: Item {}
 }

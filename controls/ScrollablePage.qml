@@ -18,6 +18,7 @@ Controls.Page {
 
             width: parent.width
             padding: 0
+            background: Item {}
         }
 
         ScrollIndicator.vertical: ScrollIndicator { }

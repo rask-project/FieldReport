@@ -25,12 +25,15 @@ public:
 
     QColor contentBackground() const;
 
+public slots:
+    QColor backgroundColor(const QColor &color, bool isDark) const;
+
 signals:
     void isDarkChanged();
     void contentBackgroundChanged();
 
 private:
-    const QColor m_backgroundDark { 20, 20, 20 };
+    const QColor m_backgroundDark { 33, 33, 33 };
     const QColor m_backgroundLight { 255, 255, 255 };
     bool m_isDark { false };
     QColor m_contentBackground { m_backgroundLight };

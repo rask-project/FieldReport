@@ -9,22 +9,18 @@ import App
 T.Frame {
     id: control
 
-    property string title
-    property alias content: item.children
-    property list<Item> actions: []
+    default property list<Item> content
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
 
-    padding: 12
+    padding: 0
     verticalPadding: Material.frameVerticalPadding
 
-    Material.elevation: 3
+    Material.elevation: 1
     Material.roundedScale: Material.LargeScale
-
-    Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutBack } }
 
     background: Rectangle {
         radius: control.Material.roundedScale
@@ -37,37 +33,10 @@ T.Frame {
         }
     }
 
-    contentItem: ColumnLayout {
+    contentItem: Column {
         id: column
-        width: parent.width - control.padding * 2
-        spacing: 10
 
-        GridLayout {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 32
-
-            Label {
-                id: titlelabel
-
-                visible: text.length > 0
-                Layout.fillWidth: true
-
-                text: control.title
-                font.pixelSize: control.font.pixelSize * 1.3
-                font.weight: Font.DemiBold
-                elide: Label.ElideRight
-            }
-
-            Row {
-                children: control.actions
-            }
-        }
-
-        Item {
-            id: item
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
+        width: parent.width
+        children: control.content
     }
 }

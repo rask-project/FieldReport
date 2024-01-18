@@ -36,3 +36,25 @@ QColor Style::contentBackground() const
 {
     return m_contentBackground;
 }
+
+QColor Style::backgroundColor(const QColor &color, bool isDark) const
+{
+    auto r = color.red();
+    auto g = color.green();
+    auto b = color.blue();
+
+    float factor = isDark ? 0.9F : 0.96F;
+    unsigned short baseColor = isDark ? 0 : 255;
+
+    if (isDark) {
+        r = std::max<int>(baseColor, (baseColor - r) * factor + r);
+        g = std::max<int>(baseColor, (baseColor - g) * factor + g);
+        b = std::max<int>(baseColor, (baseColor - b) * factor + b);
+    } else {
+        r = std::min<int>(baseColor, (baseColor - r) * factor + r);
+        g = std::min<int>(baseColor, (baseColor - g) * factor + g);
+        b = std::min<int>(baseColor, (baseColor - b) * factor + b);
+    }
+
+    return QColor::fromRgb(r, g, b);
+}

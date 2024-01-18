@@ -13,6 +13,5 @@ public:
     explicit Android(QObject *parent = nullptr);
 
     Q_INVOKABLE static void setStatusBarColor(const QColor &color);
-
-signals:
+    Q_INVOKABLE static void setNavigationBarColor(const QColor &color);
 };

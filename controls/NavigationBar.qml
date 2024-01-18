@@ -3,8 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-import Native
 import App
+import Native
 
 ToolBar {
     id: control
@@ -14,7 +14,7 @@ ToolBar {
 
     padding: 12
     topPadding: 10
-    bottomPadding: 16
+    bottomPadding: 10
 
     GridLayout {
         id: rowLayout
@@ -28,7 +28,7 @@ ToolBar {
 
     Material.background: Style.contentBackground
     Material.foreground: Material.windowText
-    Material.elevation: 6
+    Material.elevation: 1
 
-    Material.onBackgroundChanged: Android.setStatusBarColor(Material.background)
+    Material.onBackgroundChanged: Android.setNavigationBarColor(Material.background)
 }

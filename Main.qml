@@ -15,7 +15,7 @@ ApplicationWindow {
     visible: true
     title: qsTr("Rask Field Report")
 
-    Material.background: Material.theme === Material.Dark ? "#191919" : "#FFFBFE"
+    Material.background: Style.backgroundColor(Material.accent, Material.theme === Material.Dark)
 
     header: Controls.HeaderBar {
         title: stackView.currentItem.title
