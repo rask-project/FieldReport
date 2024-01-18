@@ -61,6 +61,7 @@ ColumnLayout {
 
     Row {
         Layout.alignment: Qt.AlignRight
+        Layout.rightMargin: 5
 
         RoundButton {
             id: previousMonthButton

@@ -43,7 +43,7 @@ QColor Style::backgroundColor(const QColor &color, bool isDark) const
     auto g = color.green();
     auto b = color.blue();
 
-    float factor = isDark ? 0.9F : 0.96F;
+    float factor = isDark ? 0.9F : 0.97F;
     unsigned short baseColor = isDark ? 0 : 255;
 
     if (isDark) {

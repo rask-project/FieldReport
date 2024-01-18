@@ -53,6 +53,7 @@ ColumnLayout {
         Layout.leftMargin: 10
         Layout.rightMargin: 10
 
+        interactive: false
         cellWidth: width / 7
         cellHeight: 30
 

@@ -14,32 +14,27 @@ Controls.Page {
     topPadding: 5
     bottomPadding: 5
 
-    headerSubcontent: Column {
+    header: Controls.Calendar {
+        id: calendar
+
         width: !!parent ? parent.width: 0
+        date: new Date()
+    }
 
-        Controls.Calendar {
-            id: calendar
+    footer: TabBar {
+        width: parent.width
+        currentIndex: container.currentIndex
 
-            width: parent.width
+        TabButton {
+            text: qsTr("Per hour")
 
-            date: new Date()
+            onClicked: container.currentIndex = 0
         }
 
-        TabBar {
-            width: parent.width
-            currentIndex: container.currentIndex
+        TabButton {
+            text: qsTr("Detailed")
 
-            TabButton {
-                text: qsTr("Per hour")
-
-                onClicked: container.currentIndex = 0
-            }
-
-            TabButton {
-                text: qsTr("Detailed")
-
-                onClicked: container.currentIndex = 1
-            }
+            onClicked: container.currentIndex = 1
         }
     }
 

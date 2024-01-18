@@ -2,7 +2,10 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import QtQuick.Controls.Material.impl
+
 import "../controls" as Controls
+import App
 
 Controls.ScrollablePage {
     id: page

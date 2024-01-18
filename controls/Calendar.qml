@@ -7,7 +7,7 @@ import QtQuick.Templates as T
 
 import App
 
-Item {
+Control {
     id: control
 
     required property date date
@@ -16,8 +16,27 @@ Item {
     onShowShortCalendarChanged: control.implicitHeight = control.showShortCalendar ?
                                     weekCalendar.implicitHeight + 20 :
                                     control.implicitHeight = privateData.maxImplicitHeight
-    implicitHeight: monthCalendar.implicitHeight + 20
-    clip: true
+    implicitHeight: monthCalendar.implicitHeight + topPadding + bottomPadding + bottomInset
+    bottomInset: 10
+    padding: 10
+
+    Material.elevation: 1
+    Material.roundedScale: Material.LargeScale
+
+    background: Rectangle {
+        anchors.fill: parent
+        anchors.margins: control.padding / 2
+
+        color: Style.contentBackground
+        radius: control.Material.roundedScale
+        clip: true
+
+        layer.enabled: !control.Material.noEffects && control.Material.elevation > 0
+        layer.effect: RoundedElevationEffect {
+            elevation: control.Material.elevation
+            roundedScale: 5
+        }
+    }
 
     QtObject {
         id: privateData
@@ -30,6 +49,8 @@ Item {
 
         visible: !control.showShortCalendar
         width: parent.width
+        anchors.top: control.top
+        anchors.topMargin: control.topPadding
 
         date: control.date
 
@@ -43,6 +64,8 @@ Item {
 
         visible: control.showShortCalendar
         width: parent.width
+        anchors.top: control.top
+        anchors.topMargin: control.topPadding
 
         date: control.date
         onSelectedDate: function (date) {
@@ -56,7 +79,7 @@ Item {
 
     Item {
         width: parent.width
-        height: 10
+        height: control.bottomInset
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom

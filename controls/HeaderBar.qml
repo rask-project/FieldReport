@@ -26,7 +26,7 @@ ToolBar {
         id: columLayout
 
         width: parent.width
-        spacing: 5
+        spacing: headerSubcontentItem.visible ? 5 : 0
 
         RowLayout {
             width: parent.width

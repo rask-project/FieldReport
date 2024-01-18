@@ -15,8 +15,6 @@ ApplicationWindow {
     visible: true
     title: qsTr("Rask Field Report")
 
-    Material.background: Style.backgroundColor(Material.accent, Material.theme === Material.Dark)
-
     header: Controls.HeaderBar {
         title: stackView.currentItem.title
         headerSubcontent: stackView.currentItem.headerSubcontent
@@ -96,6 +94,13 @@ ApplicationWindow {
             } else {
                 stackView.pop(pg)
             }
+        }
+    }
+
+    onClosing: function (event) {
+        if (stackView.depth > 1) {
+            stackView.pop()
+            event.accepted = false
         }
     }
 
@@ -181,6 +186,7 @@ ApplicationWindow {
 
     Material.theme: styleSettings.theme
     Material.accent: styleSettings.accentColor
+    Material.background: Style.backgroundColor(Material.accent, Material.theme === Material.Dark)
 
     Component.onCompleted: {
         const callbackStyle = function () {
