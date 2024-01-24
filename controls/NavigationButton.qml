@@ -18,6 +18,8 @@ Item {
     T.ToolButton {
         id: control
 
+        readonly property color backgroundHighlighted: Qt.rgba(Material.accent.r, Material.accent.g, Material.accent.b, 0.15)
+
         width: parent.width
         implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                                 implicitContentWidth + leftPadding + rightPadding)
@@ -31,46 +33,51 @@ Item {
 
         icon.width: 24
         icon.height: 24
-        icon.color: !enabled ? Material.hintTextColor : checked || highlighted ? Material.accent : Material.foreground
+        icon.color: !enabled ? Material.hintTextColor : Material.foreground
 
         display: RoundButton.TextUnderIcon
         highlighted: root.activated
 
         Material.roundedScale: Material.MediumScale
 
-        contentItem: IconLabel {
+        contentItem: Column {
             spacing: control.spacing
-            mirrored: control.mirrored
-            display: control.display
 
-            icon: control.icon
-            text: control.text
-            font: {
-                family: control.font.family
+            Ripple {
+                id: ripple
+
+                readonly property color backgroundHighlighted: Qt.rgba(Material.accent.r, Material.accent.g, Material.accent.b, 0.15)
+
+                width: 64
+                height: 32
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                pressed: control.pressed
+                anchor: control
+                active: control.enabled && (control.highlighted || control.down || control.visualFocus || control.hovered)
+                color: control.highlighted ? ripple.backgroundHighlighted : control.Material.rippleColor
+
+                clipRadius: control.Material.FullScale
+                clip: true
+
+                IconLabel {
+                    anchors.centerIn: parent
+                    display: RoundButton.IconOnly
+                    icon: control.icon
+                }
             }
 
-            color: !control.enabled ? control.Material.hintTextColor :
-                    control.checked || control.highlighted ? control.Material.accent : control.Material.foreground
-        }
+            Label {
+                width: parent.width
+                text: control.text
+                color: control.enabled ? control.Material.foreground : control.Material.hintTextColor
+                elide: Label.ElideRight
+                horizontalAlignment: Label.AlignHCenter
 
-        background: Ripple {
-            id: ripple
-
-            readonly property color backgroundHighlighted: Qt.rgba(Material.accent.r, Material.accent.g, Material.accent.b, 0.15)
-
-            implicitWidth: 64
-            implicitHeight: control.Material.touchTarget
-
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            width: parent.width
-            height: parent.height
-            pressed: control.pressed
-            anchor: control
-            active: control.enabled && (control.highlighted || control.down || control.visualFocus || control.hovered)
-            color: control.highlighted ? ripple.backgroundHighlighted : control.Material.rippleColor
-
-            clipRadius: control.Material.roundedScale === control.Material.FullScale ? height / 2 : control.Material.roundedScale
+                font: {
+                    family: control.font.family
+                }
+            }
         }
     }
 }

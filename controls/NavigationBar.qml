@@ -10,11 +10,11 @@ ToolBar {
     id: control
 
     default property alias content: rowLayout.data
-    implicitHeight: 92
+    implicitHeight: 80
 
-    padding: 12
-    topPadding: 10
-    bottomPadding: 10
+    padding: 10
+    topPadding: 12
+    bottomPadding: 16
 
     GridLayout {
         id: rowLayout
@@ -23,7 +23,7 @@ ToolBar {
 
         flow: GridLayout.LeftToRight
         rows: 1
-        columnSpacing: 5
+        columnSpacing: 8
     }
 
     Material.background: Style.contentBackground
